@@ -9,17 +9,19 @@
     </head>
     <body>
         <!-- Fond semi-transparent -->
-        <div id="superposition-connexion">
-            <div class="page-connexion">
+        <div id="div-superposition-form-connexion">   
+            <div class="div-form-connexion">
                 <h1>Bon retour parmi nous&nbsp;!</h1>
-                <form id="formulaire-connexion" action="index.html">
+                <form id="form-connexion" action="index.html">
                     <input type="email" id="courriel-connexion" aria-describedby="aideCourriel-connexion" placeholder="Entrez votre courriel...">
                     <input type="password" id="motDePasse-connexion" placeholder="Mot de passe">
-                    <input type="checkbox">
-                    <label>Se souvenir de moi</label>
+                    <div>
+                        <input type="checkbox" id="checkboxSouvenir" name="checkboxSouvenir">
+                        <label for="checkboxSouvenir">Se souvenir de moi</label>
+                    </div>
                     <button type="submit">Se connecter</button>
                     <a href="probleme_connexion.html">Mot de passe oublié&nbsp;?</a>
-                    <a href="insciption.html" >Créer un compte</a>
+                    <a href="inscription.html" >Créer un compte</a>
                 </form>
             </div>
         </div>
