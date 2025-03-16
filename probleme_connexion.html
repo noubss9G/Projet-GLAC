@@ -4,25 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Problème de connexion</title>
-    <link rel="stylesheet" href="CSS/style-glac.css" type="text/css">
+    <link rel="stylesheet" href="CSS/style-formulaires-glac.css" type="text/css">
     <script src="script.js"></script>
 </head>
     <body>
-       <div id="div-form-inscription">
-            <div id="div-secondaire-form-inscription">
+       <div class="div-superposition-form">
+            <div class="div-form">
                 <h1>Mot de passe oublié&nbsp;?</h1>
                 <p>Nous comprenons, les imprévus arrivent. Entrez simplement votre adresse e-mail ci-dessous et nous vous enverrons un lien pour réinitialiser votre mot de passe !</p>
-                <form id="form-probleme-inscription">
+                <form id="form-probleme-inscription" action="connexion.html">
                     <input type="email" id="courriel-echecConnexion" aria-describedby="aideCourriel-echecConnexion" placeholder="Entrez votre adresse e-mail...">
                     <button type="submit">Réinitialiser&nbsp;!</button>
                 </form>
                 <hr>
-                <div>
-                    <a href="inscription.html">Vous n'avez pas de compte&nbsp;? Créez-en un&nbsp;!</a>
-                </div>
-                <div>
-                    <a href="connexion.html">Vous avez déjà un compte&nbsp;? Connectez-vous&nbsp;!</a>
-                </div>        
+                <a href="inscription.html" class="liens-formulaires">Vous n'avez pas de compte&nbsp;? Créez-en un&nbsp;!</a>
+                <a href="connexion.html" class="liens-formulaires">Vous avez déjà un compte&nbsp;? Connectez-vous&nbsp;!</a>
             </div>
        </div>
     </body>
