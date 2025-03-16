@@ -8,19 +8,22 @@
     <script src="script.js"></script>
 </head>
     <body>
-        <h1>Mot de passe oublié &nbsp;?</h1>
-        <p>Nous comprenons, les imprévus arrivent. Entrez simplement votre adresse e-mail ci-dessous et nous vous enverrons un lien pour réinitialiser votre mot de passe !</p>
-        <form>
-            <input type="email" id="courriel-echecConnexion" aria-describedby="aideCourriel-echecConnexion" placeholder="Entrez votre adresse e-mail...">
-            <button type="submit">Réinitialiser</button>
-        </form>
-        <hr>
-        <div>
-            <a href="inscription.html">Créer un compte &nbsp;!</a>
-        </div>
-        <div>
-            <a href="connexion.html">Vous avez déjà un compte &nbsp;? Connectez-vous &nbsp;!</a>
-        </div>
-
+       <div id="div-form-inscription">
+            <div id="div-secondaire-form-inscription">
+                <h1>Mot de passe oublié&nbsp;?</h1>
+                <p>Nous comprenons, les imprévus arrivent. Entrez simplement votre adresse e-mail ci-dessous et nous vous enverrons un lien pour réinitialiser votre mot de passe !</p>
+                <form id="form-probleme-inscription">
+                    <input type="email" id="courriel-echecConnexion" aria-describedby="aideCourriel-echecConnexion" placeholder="Entrez votre adresse e-mail...">
+                    <button type="submit">Réinitialiser&nbsp;!</button>
+                </form>
+                <hr>
+                <div>
+                    <a href="inscription.html">Vous n'avez pas de compte&nbsp;? Créez-en un&nbsp;!</a>
+                </div>
+                <div>
+                    <a href="connexion.html">Vous avez déjà un compte&nbsp;? Connectez-vous&nbsp;!</a>
+                </div>        
+            </div>
+       </div>
     </body>
 </html>
