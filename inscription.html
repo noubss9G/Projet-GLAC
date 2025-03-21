@@ -12,13 +12,13 @@
         <div class="div-superposition-form">
             <div class="div-form">
                 <h1>Bienvenue&nbsp;, créez un compte&nbsp;!</h1>
-                <form id="form-inscription" action="connexion.html">
-                    <input type="text" placeholder="Prénom">
-                    <input type="text" placeholder="Nom">
-                    <input type="email" id="courriel-inscription" aria-describedby="aideCourriel-inscription" placeholder="Courriel">
-                    <input type="password" id="motDePasse-inscription" placeholder="Mot de passe">
-                    <input type="password" id="motDePasse-bis-inscription" placeholder="Répétez le mot de passe">
-                    <button type="submit"> Créer un compte </button>
+                <form id="form-inscription" name="form-inscription" method="post" action="traitement_formulaires.php">
+                    <input type="text" name="txt-prenom" placeholder="Prénom">
+                    <input type="text" name="txt-nom" placeholder="Nom">
+                    <input type="email" id="courriel-inscription" name="courriel-inscription" aria-describedby="aideCourriel-inscription" placeholder="Courriel">
+                    <input type="password" id="motDePasse-inscription" name="motDePasse-inscription" placeholder="Mot de passe">
+                    <input type="password" id="motDePasse-bis-inscription" name="motDePasse-bis-inscription" placeholder="Répétez le mot de passe">
+                    <button type="submit" name="btn-inscription"> Créer un compte </button>
                 </form>
                 <hr>
                 <a href="probleme_connexion.html" class="liens-formulaires">Mot de passe oublié&nbsp;?</a>

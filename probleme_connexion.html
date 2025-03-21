@@ -12,9 +12,9 @@
             <div class="div-form">
                 <h1>Mot de passe oublié&nbsp;?</h1>
                 <p>Nous comprenons, les imprévus arrivent. Entrez simplement votre adresse e-mail ci-dessous et nous vous enverrons un lien pour réinitialiser votre mot de passe !</p>
-                <form id="form-probleme-inscription" action="connexion.html">
-                    <input type="email" id="courriel-echecConnexion" aria-describedby="aideCourriel-echecConnexion" placeholder="Entrez votre adresse e-mail...">
-                    <button type="submit">Réinitialiser&nbsp;!</button>
+                <form id="form-probleme-inscription" name="form-probleme-inscription" method="post" action="traitement_formulaires.php">
+                    <input type="email" id="courriel-echecConnexion" name="courriel-echecConnexion" aria-describedby="aideCourriel-echecConnexion" placeholder="Entrez votre adresse e-mail...">
+                    <button type="submit" name="btn-echecConnexion">Réinitialiser&nbsp;!</button>
                 </form>
                 <hr>
                 <a href="inscription.html" class="liens-formulaires">Vous n'avez pas de compte&nbsp;? Créez-en un&nbsp;!</a>

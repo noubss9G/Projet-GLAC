@@ -12,14 +12,14 @@
         <div class="div-superposition-form">   
             <div class="div-form">
                 <h1>Bon retour parmi nous&nbsp;!</h1>
-                <form id="form-connexion" action="index.html">
-                    <input type="email" id="courriel-connexion" aria-describedby="aideCourriel-connexion" placeholder="Entrez votre courriel...">
-                    <input type="password" id="motDePasse-connexion" placeholder="Mot de passe">
+                <form id="form-connexion" name="form-connexion" method="post" action="traitement_formulaires.php">
+                    <input type="email" id="courriel-connexion" name="courriel-connexion" aria-describedby="aideCourriel-connexion" placeholder="Entrez votre courriel...">
+                    <input type="password" id="motDePasse-connexion" name="motDePasse-connexion" placeholder="Mot de passe">
                     <div>
                         <input type="checkbox" id="checkboxSouvenir" name="checkboxSouvenir">
                         <label for="checkboxSouvenir">Se souvenir de moi</label>
                     </div>
-                    <button type="submit">Se connecter</button>
+                    <button type="submit" name="btn-connexion">Se connecter</button>
                 </form>
                 <hr>
                 <a href="probleme_connexion.html" class="liens-formulaires">Mot de passe oublié&nbsp;?</a>
