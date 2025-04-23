@@ -14,8 +14,6 @@
 
 /* Boîte du formulaire */
 .div-form {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
     background: white;
     padding: 20px;
     border-radius: 8px;
@@ -25,9 +23,23 @@
     box-sizing: border-box;
 }
 
-/* .div-logo{
-    padding-top: 20%;
-} */
+/* Logo de la plateforme */
+.logo-glac{
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Signification de l'acronyme */
+.signification-acronyme{
+    margin-top: 0%;
+    margin-bottom: 5%;
+    padding: 0%;
+}
+/* Astérix pour les champs obligatoires */
+abbr{
+    text-decoration: none;
+}
 
 /* Champs de saisie */
 input[type="text"],
@@ -39,9 +51,17 @@ input[type="password"] {
     border-radius: 20px;
 }
 
+input{
+    transition: border-color 0.3s; /* Animation pour un effet fluide */
+}
+
+input:focus {
+    outline: none; /* Supprime le contour par défaut */
+}
+
 input[type="text"],
 #motDePasse-inscription,
-#motDePasse-bis-inscription {
+#confirmation-motDePasse-inscription {
     display: inline;
     width: 40%;   
 }
@@ -79,6 +99,14 @@ button:hover {
     background-color: #06f5d5;
 }
 
+/* Séparateur */
+hr {
+    margin: 20px 0;
+    border: 0;
+    height: 1px;
+    background: #ccc;
+}
+
 /* Liens */
 .liens-formulaires {
     display: block;
@@ -89,12 +117,4 @@ button:hover {
 
 .liens-formulaires:hover {
     text-decoration: underline;
-}
-
-/* Séparateur */
-hr {
-    margin: 20px 0;
-    border: 0;
-    height: 1px;
-    background: #ccc;
 }
