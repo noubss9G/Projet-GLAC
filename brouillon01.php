@@ -23,33 +23,33 @@
         $tableau_utilisateurs_authentifies["Courriel"][] = $Courriel;
         $tableau_utilisateurs_authentifies["MotDePasse"][] = $MotDePasse;
         
-        // foreach ($tableau_utilisateurs_authentifies as $cle => $valeurs) {
-        //     echo "Clé : $cle\n";
-        //     foreach ($valeurs as $valeur) {
-        //         echo " - $valeur\n";
-        //     }
-        // }
+        foreach ($tableau_utilisateurs_authentifies as $cle => $valeurs) {
+            echo "Clé : $cle\n";
+            foreach ($valeurs as $valeur) {
+                echo " - $valeur\n";
+            }
+        }
         
-        // //on se connecte à la base de données:
-        // $mysqli = mysqli_connect("domaine.tld", "nom d'utilisateur", "mot de passe", "base de données");
-        // //on vérifie que la connexion s'effectue correctement:
-        // if(!$mysqli){
-        //     echo "Erreur de connexion à la base de données.";
-        // } else {
-        //     //on fait maintenant la requête dans la base de données pour rechercher si ces données existent et correspondent:
-        //     //si vous avez enregistré le mot de passe en md5() il vous faudra faire la vérification en mettant mdp = '".md5($MotDePasse)."' au lieu de mdp = '".$MotDePasse."'
-        //     $Requete = mysqli_query($mysqli,"SELECT * FROM membres WHERE pseudo = '".$Pseudo."' AND mdp = '".$MotDePasse."'");
-        //     //si il y a un résultat, mysqli_num_rows() nous donnera alors 1
-        //     //si mysqli_num_rows() retourne 0 c'est qu'il a trouvé aucun résultat
-        //     if(mysqli_num_rows($Requete) == 0) {
-        //         echo "Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.";
-        //     } else {
-        //         //on ouvre la session avec $_SESSION:
-        //         //la session peut être appelée différemment et son contenu aussi peut être autre chose que le pseudo
-        //         $_SESSION['pseudo'] = $Pseudo;
-        //         echo "Vous êtes à présent connecté !";
-        //     }
-        // }
+        //on se connecte à la base de données:
+        $mysqli = mysqli_connect("domaine.tld", "nom d'utilisateur", "mot de passe", "base de données");
+        //on vérifie que la connexion s'effectue correctement:
+        if(!$mysqli){
+            echo "Erreur de connexion à la base de données.";
+        } else {
+            //on fait maintenant la requête dans la base de données pour rechercher si ces données existent et correspondent:
+            //si vous avez enregistré le mot de passe en md5() il vous faudra faire la vérification en mettant mdp = '".md5($MotDePasse)."' au lieu de mdp = '".$MotDePasse."'
+            $Requete = mysqli_query($mysqli,"SELECT * FROM membres WHERE pseudo = '".$Pseudo."' AND mdp = '".$MotDePasse."'");
+            //si il y a un résultat, mysqli_num_rows() nous donnera alors 1
+            //si mysqli_num_rows() retourne 0 c'est qu'il a trouvé aucun résultat
+            if(mysqli_num_rows($Requete) == 0) {
+                echo "Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.";
+            } else {
+                //on ouvre la session avec $_SESSION:
+                //la session peut être appelée différemment et son contenu aussi peut être autre chose que le pseudo
+                $_SESSION['pseudo'] = $Pseudo;
+                echo "Vous êtes à présent connecté !";
+            }
+        }
     }
 
 

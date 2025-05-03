@@ -1,0 +1,5 @@
+- Faire fonctionner la redirection après traitement du formulaire d'inscription
+- Chercher à savoir pourquoi la redirection de la page connexion ne marche pas, quand bien même le courrile et le mot de passe correspondent  
+- Envoyer un courriel et un message (possiblement dans une nouvelle page ou une boîte de dialogue) de bienvenue à l'inscription et d'information d'une nouvelle connexion
+- Gérer la double authentication
+- Faire la page index et les autres pages

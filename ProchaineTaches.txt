@@ -1,4 +1,0 @@
-- J'ai déjà gérer la validation du formulaire d'inscription, reste maintenant à gérer où s'en vont ces données, comment elles sont enregistrées, et envoyer un message de bienvenue à l'inscription 
-- Il faut aussi gérer vers où le formulaire de connexion envoie ses données et comment l'authentification est gérée, notamment la double authentication
-- Commencer le traitement des formulaires par le script pHP
-- Faire la page index
