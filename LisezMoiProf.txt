@@ -1,0 +1,5 @@
+https://github.com/noubss9G/Projet-GLAC
+
+http://noubissietchamabe.h25.techinfo420.ca/Projet-GLAC/connexion.php
+
+Les test échouent encore pour le moment, les redirections après vérification ne marchent pas comme elles devraient
