@@ -118,3 +118,27 @@ hr {
 .liens-formulaires:hover {
     text-decoration: underline;
 }
+
+#fieldset-form-double-authentification{
+    display: flex;
+    width: 50%;
+    margin: auto;
+}
+
+/* Champ de saisi du code de vérification pour la double authentification */
+#code{
+    border : 0px;
+    margin: 0%;
+}
+
+#btn-nouveauCode{
+   background: none;
+   border: none;
+   cursor: pointer;
+   text-decoration: underline;
+   color: rgb(7, 183, 241);
+}
+
+#btn-nouveauCode:hover{
+    color: #06f5d5;
+}

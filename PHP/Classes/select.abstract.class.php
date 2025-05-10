@@ -3,7 +3,7 @@
 /**
  * Dépendances
  */
-require_once __DIR__."/connexion.class.php";
+require_once __DIR__."/bd.connexion.class.php";
 
 
 abstract class Select
@@ -13,7 +13,7 @@ abstract class Select
     public function __construct()
     {
         $connexion = new Connexion();
-        $this->connexion = $connexion->ObtenirConnexionBD();
+        $this->connexion = $connexion->ObtenirConnexionLectureBD();
     }
 
     /**
@@ -26,3 +26,4 @@ abstract class Select
      */
     abstract function selectMultiple(); 
 }
+?>

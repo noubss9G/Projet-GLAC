@@ -22,7 +22,7 @@
                     <button type="submit" name="btn-echecConnexion">Réinitialiser&nbsp;!</button>
                 </form>
                 <hr>
-                <a href="inscription.html" class="liens-formulaires">Vous n'avez pas de compte&nbsp;? Créez-en un&nbsp;!</a>
+                <a href="inscription.php" class="liens-formulaires">Vous n'avez pas de compte&nbsp;? Créez-en un&nbsp;!</a>
                 <a href="connexion.php" class="liens-formulaires">Vous avez déjà un compte&nbsp;? Connectez-vous&nbsp;!</a>
             </div>
        </div>

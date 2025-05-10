@@ -12,6 +12,15 @@
         <div class="div-superposition-form">
             <!-- Page du formulaire -->
             <div class="div-form">
+                <?php
+                    if(isset($_GET["session"])){
+                        if ($_GET["session"] == "erreurInfo") {
+                            echo "<p style=\"color: red\">Une erreur est survenue lors de votre enregistrement. Veuillez rééssayer</p>";
+                        } elseif ($_GET["session"] == "ChampsVides") {
+                            echo "<p style=\"color: red\">Tous les champs sont requis.</p>";
+                        }
+                    }
+                ?>
                 <img src="Images/Logo_GLAC.png" alt="Logo_GLAC" class="logo-glac">
                 <h1 class="signification-acronyme">Gestionnaire Libre d'Associations et de Coopératives</h1>
                 <h2>Bienvenue&nbsp;, créez un compte&nbsp;!</h2>
@@ -25,7 +34,7 @@
                     <button type="submit" name="btn-inscription"> Créer un compte </button>
                 </form>
                 <hr>
-                <a href="probleme_connexion.html" class="liens-formulaires">Mot de passe oublié&nbsp;?</a>
+                <a href="probleme_connexion.php" class="liens-formulaires">Mot de passe oublié&nbsp;?</a>
                 <a href="connexion.php" class="liens-formulaires"> Vous avez déjà un compte&nbsp;? Connectez-vous&nbsp;!</a>
             </div>
         </div>

@@ -24,22 +24,35 @@ class SelectUtilisateur extends Select
     public function select()
     {
         try {
-            $requete = $this->connexion->prepare("select * from Utilisateur where courriel=:mail");
-    
+            $requete = $this->connexion->prepare("select COUNT(*) from Utilisateur where courriel=:mail");
+            
             $requete->bindValue(":mail",$this->courriel);
         
             $requete->execute();
+
+            $compte = $requete->fetch();
+
+            if($compte[0] == 1){
+
+                $requete = $this->connexion->prepare("select * from Utilisateur where courriel=:mail");
     
-            $utilisateur = $requete->fetch(PDO::FETCH_OBJ);
+                $requete->bindValue(":mail",$this->courriel);
+            
+                $requete->execute();
+        
+                $utilisateur = $requete->fetch(PDO::FETCH_OBJ);
+    
+                $this->utilisateur->DefinirId($utilisateur->id_utilisateur);
+                $this->utilisateur->DefinirCourriel($utilisateur->courriel);
+                $this->utilisateur->DefinirMdp($utilisateur->mot_de_passe);
+    
+                return $this->utilisateur;
+            }
 
-            $this->utilisateur->DefinirId($utilisateur->id_utilisateur);
-            $this->utilisateur->DefinirCourriel($utilisateur->courriel);
-            $this->utilisateur->DefinirMdp($utilisateur->mot_de_passe);
-
-            return $this->utilisateur;
     
         } catch (Exception $e) {
-            error_log("Exception pdo: ".$e->getMessage());
+            // error_log("Exception pdo: ".$e->getMessage());
+            error_log("[".date("d/m/o H:i:s e",time())."] Authentification anormale - Exception PDO :".$e->getMessage()." - courriel invalide - Client : ".$_SERVER["REMOTE_ADDR"]."\n\r",3, __DIR__."/../../../logs/connexion.log");
         }        
     }
 
@@ -54,5 +67,3 @@ class SelectUtilisateur extends Select
         null;
      }
 }
-
-
