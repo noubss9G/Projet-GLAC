@@ -5,6 +5,8 @@ class Utilisateur
     private int $id_utilisateur;
     private string $courriel;
     private string $mot_de_passe;
+    private string $nom;
+    private string $prenom;
 
 
     /**
@@ -25,6 +27,16 @@ class Utilisateur
         $this->mot_de_passe = $p;
     }
 
+    public function DefinirNom(string $p)
+    {
+        $this->nom = $p;
+    }
+
+    public function DefinirPrenom(string $p)
+    {
+        $this->prenom = $p;
+    }
+
 
     /**
      * Obtenir attributs d'utilisateur
@@ -42,5 +54,15 @@ class Utilisateur
     public function ObtenirMdp()
     {
         return $this->mot_de_passe;
+    }
+
+    public function ObtenirNom()
+    {
+        return $this->nom;
+    }
+    
+    public function ObtenirPrenom()
+    {
+        return $this->prenom;
     }
 }

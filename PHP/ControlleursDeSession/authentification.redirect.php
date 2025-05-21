@@ -27,8 +27,8 @@
             // OK je peux faire la session
             $session = new Session(60*10);  // La durée de la session est de 10 minutes
             session_start();
-            $session->creerSession($courriel, $_SERVER["REMOTE_ADDR"]);
-            $_SESSION["nom"] = "session_authentification";
+            $session->creerSession($courriel, $utilisateur->ObtenirNom(), $utilisateur->ObtenirPrenom(), $_SERVER["REMOTE_ADDR"]);
+            $_SESSION["nom_session"] = "session_authentification";
 
             // Envoi du courriel de double authentification
             require_once __DIR__."/courriel.authentification.php";

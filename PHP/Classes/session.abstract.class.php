@@ -25,7 +25,7 @@
         /**
          * Affecte les valeurs nécessaires à la validation de la session selon l'étape de la session.
          */
-        public abstract function creerSession(string $identifiant_utilisateur, string $ip_serveur);
+        public abstract function creerSession(string $identifiant_utilisateur,$nom_utilisateur,$prenom_utilisateur, string $ip_serveur);
 
 
         /**

@@ -7,6 +7,8 @@ class SelectUtilisateur extends Select
 {
     protected string $courriel;
     protected string $mot_de_passe;
+    protected string $nom;
+    protected string $prenom;
     protected Utilisateur $utilisateur;
 
     public function __construct(string $courriel)
@@ -45,6 +47,8 @@ class SelectUtilisateur extends Select
                 $this->utilisateur->DefinirId($utilisateur->id_utilisateur);
                 $this->utilisateur->DefinirCourriel($utilisateur->courriel);
                 $this->utilisateur->DefinirMdp($utilisateur->mot_de_passe);
+                $this->utilisateur->DefinirNom($utilisateur->nom);
+                $this->utilisateur->DefinirPrenom($utilisateur->prenom);
     
                 return $this->utilisateur;
             }

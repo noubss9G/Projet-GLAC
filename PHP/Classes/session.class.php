@@ -20,9 +20,11 @@ class Session extends InitialisationSession
     /**
      * Affecte les valeurs nécessaires à la validation de la session complète.
      */
-    public function creerSession(string $identifiant_utilisateur, string $ip_serveur)
+    public function creerSession(string $identifiant_utilisateur,$nom_utilisateur,$prenom_utilisateur, string $ip_serveur)
     {
         $_SESSION["courriel"] = $identifiant_utilisateur;
+        $_SESSION["nom_utilisateur"] = $nom_utilisateur;
+        $_SESSION["prenom_utilisateur"] = $prenom_utilisateur;
         $_SESSION["ip"] = $ip_serveur;
         $_SESSION["date_debut"] = date("l").",".date("d/m/Y H:i:s");
         $_SESSION["time_start"] = time();
@@ -44,23 +46,23 @@ class Session extends InitialisationSession
                 if (!isset($_SESSION["courriel"]) || !isset($_SESSION["ip"]) || !isset($_SESSION["date_debut"]) || !isset($_SESSION["time_start"]))
                 {
                     $this->supprimer();
-                    error_log("[".date("d/m/o H:i:s e",time())."] Accès directe refusée au requérant ".$_SERVER["REMOTE_ADDR"]."\n\r",3, __DIR__."/../../../logs/connexion.log");
-                    header("Location: ../Vues/erreur.php");
+                    error_log("[".date("d/m/o H:i:s e",time())."] Accès direct refusé au requérant ".$_SERVER["REMOTE_ADDR"]."\n\r",3, "/Projet-GLAC/PHP/ControlleursDeSession/logs/connexion.log");
+                    header("Location: /Projet-GLAC/connexion.php");
                     exit();
 
                 } elseif ((time() - $_SESSION["time_start"]) > $duree_session) {
                     
                     $this->supprimer();
-                    error_log("[".date("d/m/o H:i:s e",time())."] Session expirée : Requérant ".$_SERVER["REMOTE_ADDR"]."Client authorisé: ".$_SESSION["courriel"]."\n\r" ,3, __DIR__."/../../../logs/connexion.log");
+                    error_log("[".date("d/m/o H:i:s e",time())."] Session expirée : Requérant ".$_SERVER["REMOTE_ADDR"]."Client authorisé: ".$_SESSION["courriel"]."\n\r" ,3,"/Projet-GLAC/PHP/ControlleursDeSession/logs/connexion.log");
                     
                     if($connected)
                     {
-                        header("Location: ../../index.php?session=sessionExpire");
+                        header("Location: /Projet-GLAC/index.php?session=sessionExpire");
                         exit();
                     } 
                     else 
                     {
-                        header("Location: ../../connexion.php?session=sessionExpire");
+                        header("Location: /Projet-GLAC/connexion.php?session=sessionExpire");
                         exit();
                     }
                 }

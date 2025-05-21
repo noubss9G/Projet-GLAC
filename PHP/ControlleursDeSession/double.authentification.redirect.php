@@ -13,8 +13,10 @@
         {
             if ($codeSaisi == $_SESSION["code"])
             {
-                // Je stocke l'identifiant de l'utilisateur qui a servi dans la session de double authentification
+                // Je stocke les identifiants de l'utilisateur qui ont servi dans la session de double authentification
                 $courriel = $_SESSION["courriel"];
+                $nom_utilisateur = $_SESSION["nom_utilisateur"];
+                $prenom_utilisateur = $_SESSION["prenom_utilisateur"];
 
                 // Je détruit la session de double authentification
                 $session->supprimer();
@@ -22,8 +24,8 @@
                 // Je crèe une nouvelle session de 30 minutes pour la navigation sur le site
                 $session = new Session(60*30);
                 session_start();
-                $session->creerSession($courriel, $_SERVER["REMOTE_ADDR"]);
-                $_SESSION["nom"] = "session_utilisateur_connecte";
+                $session->creerSession($courriel,$nom_utilisateur,$prenom_utilisateur,$_SERVER["REMOTE_ADDR"]);
+                $_SESSION["nom_session"] = "session_utilisateur_connecte";
 
                 header("Location: ../../index.php?session=utilisateurAuthentifie");
                 exit();
