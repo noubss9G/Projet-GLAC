@@ -26,12 +26,13 @@
                 session_start();
                 $session->creerSession($courriel,$nom_utilisateur,$prenom_utilisateur,$_SERVER["REMOTE_ADDR"]);
                 $_SESSION["nom_session"] = "session_utilisateur_connecte";
-
+                error_log("[".date("d/m/o H:i:s e",time())."] Accès réussi - utilisateur : ".$_SESSION["courriel"]." ".$_SERVER["REMOTE_ADDR"]."\n\r",3, "/home/noubissietchamab/logs/acces-reussis.log");
                 header("Location: ../../index.php?session=utilisateurAuthentifie");
                 exit();
             }
             else
             {
+                error_log("[".date("d/m/o H:i:s e",time())."] Échec double authentification - code de double authentification erroné - utilisateur : ".$_SESSION["courriel"]." ".$_SESSION["prenom_utilisateur"]." ".$_SESSION["nom_utilisateur"].$_SERVER["REMOTE_ADDR"]."\n\r",3,"/home/noubissietchamab/logs/acces-refuses.log");
                 header("Location: ../../page_double_authentification.php?session=erreurCode");
                 exit();
             }
@@ -49,7 +50,7 @@
         }
         else 
         {
-            error_log("[".date("d/m/o H:i:s e",time())."] Authentification anormale - une erreur est survenue dans l'envoi du code pour la double authentification par courriel - Client :  ".$_SERVER["REMOTE_ADDR"]."\n\r",3, __DIR__."/logs/connexion.log");
+            error_log("[".date("d/m/o H:i:s e",time())."] Authentification anormale - une erreur est survenue dans l'envoi du code pour la double authentification par courriel - Client :  ".$_SESSION["courriel"]." ".$_SERVER["REMOTE_ADDR"]."\n\r",3, "/home/noubissietchamab/logs/acces-refuses.log");
             header("Location: ../../connexion.php?session=erreurEnvoiCode");
             exit();
         }

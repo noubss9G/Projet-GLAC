@@ -1,3 +1,3 @@
-- Mieux gérer mes sessions notamment pour la double authentication
 - Envoyer un courriel et un message (possiblement dans une nouvelle page ou une boîte de dialogue) de bienvenue à l'inscription et d'information d'une nouvelle connexion
-- Faire la page index et les autres pages
+- Terminer la page index et les autres pages
+- Faire l'ajout dynamique dans la page d'accueil de toutes les associations présentes dans la base de données

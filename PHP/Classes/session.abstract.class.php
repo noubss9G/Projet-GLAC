@@ -8,7 +8,12 @@
         {
             require_once __DIR__."/../ConfigBD/config.bd.ecriture.include.php";
             
-            ini_set("session.save_path", "/home/noubissietchamab/sessions/Projet-GLAC/");
+            // Désactivation de l'affichage des erreurs PHP à l'écran
+            // ini_set('display_errors', 0);
+            // ini_set('log_errors', 1);
+            // error_reporting(E_ALL);
+            
+            // ini_set("session.save_path", "/home/noubissietchamab/sessions/Projet-GLAC/");
             ini_set("session.cookie_lifetime", $duree_session); // Durée de la session en secondes
             ini_set("session.use_cookies", 1);
             ini_set("session.use_only_cookies" , 1);

@@ -14,13 +14,15 @@
 
         /**
          * Requête sur la BD avec le courriel
+         * On vérifie si le courriel existe
          */
         
         $interfaceUtilisateur = new SelectUtilisateur($courriel);
         if (!($utilisateur = $interfaceUtilisateur->select())){
+            error_log("[".date("d/m/o H:i:s e",time())."] Tentative de connexion avec un courriel inexistant - utilisateur : ".$courriel." ".$_SERVER["REMOTE_ADDR"]."\n\r",3, "/home/noubissietchamab/logs/acces-refuses.log");
             header("Location: ../../connexion.php?session=erreurCourriel");
         }
-        
+
         // Vérification de la compatibilité du mot de passe de l'utilisateur selectionné avec le mot de passe enregistré dans la bd
         if (password_verify($mot_de_passe, $utilisateur->ObtenirMdp())){
 
@@ -36,16 +38,17 @@
             if (mail($destinataire, $objet, $message, $en_tete)) {
                 header("Location: ../../page_double_authentification.php");
             } else {
-                error_log("[".date("d/m/o H:i:s e",time())."] Authentification anormale - une erreur est survenue dans l'envoi du code pour la double authentification par courriel - Client :  ".$_SERVER["REMOTE_ADDR"]."\n\r",3, __DIR__."/../../../logs/connexion.log");
+                error_log("[".date("d/m/o H:i:s e",time())."] Authentification anormale - une erreur est survenue dans l'envoi du code pour la double authentification par courriel - utilisateur :  ".$_SESSION["courriel"]." ".$_SERVER["REMOTE_ADDR"]."\n\r",3, __DIR__."/home/noubissietchamab/logs/acces-refuses.log");
                 header("Location: ../../connexion.php?session=erreurEnvoiCode");
             }
 
         }else {
+            error_log("[".date("d/m/o H:i:s e",time())."] Tentative de connexion avec un mot de passe non correspondant - utilisateur : ".$courriel." ".$_SERVER["REMOTE_ADDR"]."\n\r",3, "/home/noubissietchamab/logs/acces-refuses.log");
             header("Location: ../../connexion.php?session=erreurMDP");
         }
 
     }else {
-        error_log("[".date("d/m/o H:i:s e",time())."] Authentification anormale - courriel ou mot de passe absent - Client : ".$_SERVER["REMOTE_ADDR"]."\n\r",3, __DIR__."/../../../logs/connexion.log");
+        error_log("[".date("d/m/o H:i:s e",time())."] Authentification anormale - courriel ou mot de passe absent - utilisateur : ".$courriel." ".$_SERVER["REMOTE_ADDR"]."\n\r",3, __DIR__."/home/noubissietchamab/logs/acces-refuses.log");
         header("Location: ../../connexion.php?session=ChampsVides");
     }
 ?>

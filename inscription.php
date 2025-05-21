@@ -18,7 +18,9 @@
                             echo "<p style=\"color: red\">Une erreur est survenue lors de votre enregistrement. Veuillez rééssayer</p>";
                         } elseif ($_GET["session"] == "ChampsVides") {
                             echo "<p style=\"color: red\">Tous les champs sont requis.</p>";
-                        }
+                        }elseif ($_GET["session"] == "courrielExistant") {
+                            echo "<p style=\"color: red\">Un utilisateur avec ce courriel existe déjà. Veuillez-vous connecter ou procéder à l'inscription d'un nouvel utilisateur.</p>";
+                        } 
                     }
                 ?>
                 <img src="Images/Logo_GLAC.png" alt="Logo_GLAC" class="logo-glac">

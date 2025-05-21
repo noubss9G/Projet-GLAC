@@ -46,14 +46,14 @@ class Session extends InitialisationSession
                 if (!isset($_SESSION["courriel"]) || !isset($_SESSION["ip"]) || !isset($_SESSION["date_debut"]) || !isset($_SESSION["time_start"]))
                 {
                     $this->supprimer();
-                    error_log("[".date("d/m/o H:i:s e",time())."] Accès direct refusé au requérant ".$_SERVER["REMOTE_ADDR"]."\n\r",3, "/Projet-GLAC/PHP/ControlleursDeSession/logs/connexion.log");
-                    header("Location: /Projet-GLAC/connexion.php");
+                    error_log("[".date("d/m/o H:i:s e",time())."] Accès direct refusé au requérant ".$_SERVER["REMOTE_ADDR"]."\n\r",3, "/home/noubissietchamab/logs/acces-refuses.log");
+                    header("Location: /Projet-GLAC/connexion.php?session=sessionExpire");
                     exit();
 
                 } elseif ((time() - $_SESSION["time_start"]) > $duree_session) {
                     
                     $this->supprimer();
-                    error_log("[".date("d/m/o H:i:s e",time())."] Session expirée : Requérant ".$_SERVER["REMOTE_ADDR"]."Client authorisé: ".$_SESSION["courriel"]."\n\r" ,3,"/Projet-GLAC/PHP/ControlleursDeSession/logs/connexion.log");
+                    error_log("[".date("d/m/o H:i:s e",time())."] Session expirée : Requérant ".$_SERVER["REMOTE_ADDR"]."Client authorisé: ".$_SESSION["courriel"]."\n\r" ,3,"/home/noubissietchamab/logs/acces-refuses.log");
                     
                     if($connected)
                     {
